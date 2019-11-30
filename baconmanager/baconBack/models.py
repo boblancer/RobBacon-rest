@@ -8,6 +8,6 @@ class User(models.Model):
     lineID = models.CharField(max_length=50)
 
     def __str__(self):
-        return "{} {}| {} |".format(self.firstName, self.lastName, self.lineID)
+        return "{} {} | {} |".format(self.firstName, self.lastName, self.lineID)
 
 
