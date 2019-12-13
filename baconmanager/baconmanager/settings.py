@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'baconBack.apps.BaconbackConfig'
+    'baconBack.apps.BaconbackConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
