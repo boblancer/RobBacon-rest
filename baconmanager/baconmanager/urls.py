@@ -1,3 +1,6 @@
+# import sys
+#
+# sys.path.append('C:/Users/Lenovo/Documents/SE/Year2S1/Assembly/Bacon/RobBacon-rest/baconmanager')
 """baconmanager URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
