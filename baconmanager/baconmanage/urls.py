@@ -18,5 +18,6 @@ from django.urls import include, path, re_path
 
 urlpatterns = [path('baconBack/', include('baconmanager.baconBack.urls')),
                path('admin/', admin.site.urls),
+               path('webhook/', include('baconBack.urls')),
                 re_path('api/(?P<version>(v1|v2))/', include('baconmanager.baconBack.urls'))
                ]
