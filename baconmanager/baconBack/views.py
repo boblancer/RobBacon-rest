@@ -32,7 +32,7 @@ def webhook(request):
     print("THIS META: ", request.META)
     signature = request.META['HTTP_X_LINE_SIGNATURE']
     print("pass1")
-    body = request.data
+    body = request.body.decode('utf-8')
     print("pass2")
     try:
         handler.handle(body, signature)
