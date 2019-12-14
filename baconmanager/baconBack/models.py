@@ -22,9 +22,9 @@ class Attendance(models.Model):
 class Class(models.Model):
     superUserID = models.IntegerField()
     ID = models.IntegerField()
-    name = models.CharField
-    description = models.CharField
-    hwID = models.IntegerField
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    hwID = models.IntegerField()
 
     def __str__(self):
         return "super user = {} id = {} name = {} desc = {} hwID = {}".format(self.superUserID, self.ID, self.name, self.description, self.hwID)
@@ -38,8 +38,8 @@ class Member(models.Model):
 
 class Session(models.Model):
     ID = models.IntegerField()
-    topic = models.CharField()
-    description = models.CharField()
+    topic = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
     start = models.DateTimeField()
     end = models.DateTimeField()
 
