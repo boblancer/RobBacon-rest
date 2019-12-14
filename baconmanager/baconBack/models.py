@@ -9,7 +9,7 @@ class User(models.Model):
     studentID = models.IntegerField()
 
     def __str__(self):
-        return "ID = {}, {} {} | {} |".format(self.ID, self.firstName, self.lastName, self.studentID)
+        return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
 
 class Attendance(models.Model):
     classID = models.IntegerField()
