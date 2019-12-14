@@ -11,6 +11,7 @@ autopep8 = "*"
 django = "==2.2.4"
 gunicorn = "*"
 line-bot-sdk = "*"
+dj-database-url = "==0.5.0"
 
 [requires]
 python_version = "3.7"
