@@ -5,7 +5,7 @@ from .models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("firstName", "lastName", "lineID")
+        fields = ("ID", "firstName", "lastName", "studentID")
 
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
