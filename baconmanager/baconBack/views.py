@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics, status
+from django.http import HttpRequest
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -26,17 +27,17 @@ handler = WebhookHandler('edd35e8453bd3b9715cb6e30941c196a')
 
 
 # Create your views here.
-@api_view(['GET','POST'])
+@api_view(['GET', 'POST'])
 def webhook(request):
-    # signature = request.headers['X-Line-Signature']
-    #
-    # body = request.get_data(as_text=True)
-    # try:
-    #     handler.handle(body, signature)
-    # except InvalidSignatureError:
-    #     return Response(status=status.HTTP_400_BAD_REQUEST)
+    signature = request.META['HTTP_X_LINE_SIGNATURE']
+    body = request.body.decode('utf-8')
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
     return HttpResponse("OK")
+
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -52,16 +53,26 @@ def handle_postback(event):
     bot.reply_message(event.replyToken, TextSendMessage(text="Confirmed"))
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
 
+
 @handler.add(BeaconEvent)
 def handle_beacon(event):
     time = event.timestamp
     userID = event.source.userId
     verifyUserID(userID)
 
-#verify that user is registered
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    bot.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
+
+
+# verify that user is registered
 def verifyUserID(userID):
-    #send confirmation flex message if user is verified
+    # send confirmation flex message if user is verified
     pass
+
 
 def sendConfirmation(classID, sessionID, userID):
     dataString = "classID=" + classID + "&sessionID=" + sessionID
