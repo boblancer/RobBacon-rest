@@ -12,6 +12,7 @@ django = "==2.2.4"
 gunicorn = "*"
 dj-database-url = "==0.5.0"
 line-bot-sdk = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
