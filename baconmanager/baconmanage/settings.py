@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'baconBack.apps.BaconbackConfig'
+    'baconmanager.baconBack.apps.BaconbackConfig'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'baconmanage.urls'
+ROOT_URLCONF = 'baconmanager.baconmanage.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'baconmanage.wsgi.application'
+WSGI_APPLICATION = 'baconmanager.baconmanage.wsgi.application'
 
 
 # Database

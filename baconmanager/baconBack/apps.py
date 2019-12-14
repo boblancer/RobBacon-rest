@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class BaconbackConfig(AppConfig):
-    name = 'baconBack'
+    name = 'baconmanager.baconBack'
