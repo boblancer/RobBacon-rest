@@ -12,7 +12,11 @@ django = "==2.2.4"
 gunicorn = "*"
 dj-database-url = "==0.5.0"
 line-bot-sdk = "*"
+<<<<<<< HEAD
 psycopg2 = "*"
+=======
+dj-database-url = "==0.5.0"
+>>>>>>> masterFix
 
 [requires]
 python_version = "3.7"

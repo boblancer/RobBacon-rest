@@ -1,7 +1,11 @@
 {
     "_meta": {
         "hash": {
+<<<<<<< HEAD
             "sha256": "9beeb8b2bf811a6ef45a5ed20d67f83499105de245ebb0c2723debdf3408aaf2"
+=======
+            "sha256": "5586de1f23439fd17f391bd38a1028d4f7231ddace5a986e8a9388666aa015c4"
+>>>>>>> masterFix
         },
         "pipfile-spec": 6,
         "requires": {
