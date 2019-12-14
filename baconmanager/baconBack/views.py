@@ -29,8 +29,8 @@ handler = WebhookHandler('edd35e8453bd3b9715cb6e30941c196a')
 # Create your views here.
 @api_view(['GET', 'POST'])
 def webhook(request):
+    print(request.META)
     signature = request.META['X-Line-Signature']
-
     body = request.get_data(as_text=True)
     try:
         handler.handle(body, signature)
