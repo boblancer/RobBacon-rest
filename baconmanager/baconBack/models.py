@@ -3,12 +3,13 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
+    ID = models.CharField(max_length=40, primary_key=True)
     firstName = models.CharField(max_length=40)
     lastName = models.CharField(max_length=50)
-    lineID = models.CharField(max_length=50)
+    studentID = models.IntegerField()
 
     def __str__(self):
-        return "{} {} | {} |".format(self.firstName, self.lastName, self.lineID)
+        return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
 
 class Attendance(models.Model):
     classID = models.IntegerField()
