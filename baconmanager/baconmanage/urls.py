@@ -1,4 +1,4 @@
-"""baconmanager URL Configuration
+"""baconmanage URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path, re_path
 
-urlpatterns = [path('baconBack/', include('baconBack.urls')),
+urlpatterns = [path('baconBack/', include('baconmanager.baconBack.urls')),
                path('admin/', admin.site.urls),
                path('webhook/', include('baconBack.urls')),
-                re_path('api/(?P<version>(v1|v2))/', include('baconBack.urls'))
+                re_path('api/(?P<version>(v1|v2))/', include('baconmanager.baconBack.urls'))
                ]

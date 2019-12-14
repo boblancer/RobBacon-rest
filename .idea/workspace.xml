@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="598dd7a2-b580-4a7c-a248-750511c9afd3" name="Default" comment="" />
+    <list default="true" id="598dd7a2-b580-4a7c-a248-750511c9afd3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconBack/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconBack/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconBack/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconBack/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconBack/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconBack/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconmanage/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconmanage/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconmanage/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/baconmanager/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/baconmanage/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baconmanager/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/baconmanager/manage.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baconmanager/baconBack/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/baconmanager/baconBack/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,6 +72,17 @@
             <path>
               <item name="RobBacon-rest" type="b2602c69:ProjectViewProjectNode" />
               <item name="RobBacon-rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RobBacon-rest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RobBacon-rest" type="462c0819:PsiDirectoryNode" />
+              <item name="baconmanager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RobBacon-rest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RobBacon-rest" type="462c0819:PsiDirectoryNode" />
+              <item name="baconmanager" type="462c0819:PsiDirectoryNode" />
+              <item name="baconBack" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -68,15 +121,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1592262" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1592262" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.13379073" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.28816468" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -90,5 +144,29 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/baconmanager/baconmanage/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baconmanager/baconBack/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baconmanager/baconBack/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
