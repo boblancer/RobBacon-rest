@@ -1,1 +1,1 @@
-web: gunicorn baconmanager.baconmanage.wsgi
+web: gunicorn baconmanager.wsgi
