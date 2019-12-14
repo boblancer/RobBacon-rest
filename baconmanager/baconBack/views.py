@@ -13,7 +13,7 @@ from linebot.exceptions import (
     InvalidSignatureError,
     LineBotApiError)
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, FlexSendMessage, PostbackEvent
+    MessageEvent, TextMessage, TextSendMessage, FlexSendMessage, PostbackEvent, BeaconEvent
 )
 
 from .models import User
@@ -51,6 +51,17 @@ def handle_postback(event):
     dict["userID"] = event.source.userId
     bot.reply_message(event.replyToken, TextSendMessage(text="Confirmed"))
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
+
+@handler.add(BeaconEvent)
+def handle_beacon(event):
+    time = event.timestamp
+    userID = event.source.userId
+    verifyUserID(userID)
+
+#verify that user is registered
+def verifyUserID(userID):
+    #send confirmation flex message if user is verified
+    pass
 
 def sendConfirmation(classID, sessionID, userID):
     dataString = "classID=" + classID + "&sessionID=" + sessionID
