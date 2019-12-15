@@ -42,7 +42,8 @@ def webhook(request):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     print("called")
-    data = event.data
+    print("postback event: ", event)
+    data = event.postback.data
     data = data.split('&')
     dict = {}
 
@@ -50,8 +51,9 @@ def handle_postback(event):
         temp = item.split('=')
         dict[temp[0]] = temp[1]
 
-    dict["userID"] = event.source.userId
+    dict["userID"] = event.source.user_id
     bot.reply_message(event.replyToken, TextSendMessage(text="Confirmed " + dict["classID"]))
+    print("replied")
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
 
 
