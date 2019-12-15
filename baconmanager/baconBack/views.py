@@ -57,7 +57,7 @@ def handle_postback(event):
 @handler.add(BeaconEvent)
 def handle_beacon(event):
     time = event.timestamp
-    userID = event.source.userId
+    userID = event.source.user_id
     verifyUserID(userID)
 
 
