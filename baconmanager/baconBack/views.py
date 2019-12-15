@@ -50,7 +50,7 @@ def handle_postback(event):
         dict[temp[0]] = temp[1]
 
     dict["userID"] = event.source.userId
-    bot.reply_message(event.replyToken, TextSendMessage(text="Confirmed"))
+    bot.reply_message(event.replyToken, TextSendMessage(text="Confirmed " + dict["classID"]))
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
 
 
@@ -66,6 +66,7 @@ def handle_message(event):
     bot.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
+    sendConfirmation("1", "2", event.source.userId)
 
 
 # verify that user is registered
