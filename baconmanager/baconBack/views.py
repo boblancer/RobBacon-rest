@@ -41,6 +41,7 @@ def webhook(request):
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
+    print("called")
     data = event.data
     data = data.split('&')
     dict = {}
@@ -66,7 +67,8 @@ def handle_message(event):
     bot.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
-    sendConfirmation("1", "2", event.source.userId)
+    print("event: ", event)
+    sendConfirmation("1", "2", event.source.user_id)
 
 
 # verify that user is registered
@@ -77,6 +79,7 @@ def verifyUserID(userID):
 
 def sendConfirmation(classID, sessionID, userID):
     dataString = "classID=" + classID + "&sessionID=" + sessionID
+    print("pass here")
     try:
         bot.push_message(userID, FlexSendMessage(alt_text="Confirm your attendance", contents={
             "type": "bubble",
@@ -126,6 +129,7 @@ def sendConfirmation(classID, sessionID, userID):
         }
                                                  ))
     except LineBotApiError as e:
+        print("error in confirming")
         return
 
 
