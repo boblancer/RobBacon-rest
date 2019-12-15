@@ -52,7 +52,7 @@ def handle_postback(event):
         dict[temp[0]] = temp[1]
 
     dict["userID"] = event.source.user_id
-    bot.reply_message(event.reply_token, TextSendMessage(text="Confirmed " + dict["classID"]))
+    bot.reply_message(event.reply_token, TextSendMessage(text="Confirmed classID: " + dict["classID"]) + " sessionID: " + dict["sessionID"], + " userID: " + dict["userID"])
     print("replied")
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
 
