@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'baconmanager.baconmange.middleware.CorsMiddleware'
+    'baconmanager.baconmanage.middleware.CorsMiddleware'
 
 ]
 
