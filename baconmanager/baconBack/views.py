@@ -123,7 +123,7 @@ def sendConfirmation(classID, sessionID, userID):
                 ]
             }
         }
-                                                 ))
+        ))
     except LineBotApiError as e:
         return
 
@@ -135,6 +135,10 @@ def confirm_attendance(classID, sessionID, userID):
 
 @api_view(['GET', 'POST'])
 def user_test(request):
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
     if request.method == 'GET':
         qs = User.objects.all()
         serializer = UserSerializer(qs, many=True)
