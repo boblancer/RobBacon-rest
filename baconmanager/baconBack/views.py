@@ -135,10 +135,10 @@ def confirm_attendance(classID, sessionID, userID):
 
 @api_view(['GET', 'POST'])
 def user_test(request):
-    response["Access-Control-Allow-Origin"] = "*"
-    response["Access-Control-Allow-Methods"] = "POST, OPTIONS"
-    response["Access-Control-Max-Age"] = "1000"
-    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    response["Access-Control-Allow-Origin"] = "http://localhost:3000"
+    response["Access-Control-Allow-Methods"] = "GET"
+    response["Access-Control-Allow-Headers"] = "http://localhost:3000"
+
     if request.method == 'GET':
         qs = User.objects.all()
         serializer = UserSerializer(qs, many=True)
