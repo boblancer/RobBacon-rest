@@ -17,7 +17,9 @@ bot = LineBotApi(
 
 
 def verifyUserID(userID):
-    # send confirmation flex message if user is verified
+    if User.objects.filter(id=userID).exists():
+
+        # send confirmation flex message if user is verified
     pass
 
 

@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class User(models.Model):
     ID = models.CharField(max_length=40, primary_key=True)
     firstName = models.CharField(max_length=40)
@@ -10,6 +11,7 @@ class User(models.Model):
 
     def __str__(self):
         return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
+
 
 class Attendance(models.Model):
     classID = models.IntegerField()
@@ -30,12 +32,14 @@ class Class(models.Model):
     def __str__(self):
         return "super user = {} id = {} name = {} desc = {} hwID = {}".format(self.superUserID, self.ID, self.name, self.description, self.hwID)
 
+
 class Member(models.Model):
     classID = models.IntegerField()
     userID = models.IntegerField()
 
     def __str__(self):
         return "class id = {} | user = {} |".format(self.classID, self.userID)
+
 
 class Session(models.Model):
     ID = models.IntegerField()
@@ -46,5 +50,3 @@ class Session(models.Model):
 
     def __str__(self):
         return "ID = {} topic = {} desc = {} from {} to {}".format(self.ID, self.topic, self.description, self.start, self.end)
-
-

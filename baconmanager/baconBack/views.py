@@ -15,7 +15,6 @@ import service
 from linebot.exceptions import (
     InvalidSignatureError,
     LineBotApiError)
-
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage, PostbackEvent, BeaconEvent
 )
