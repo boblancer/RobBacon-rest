@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='attendance',
             name='classID',
-            field=models.IntegerField(),
+            field=models.IntegerField(primary_key=False),
         ),
     ]
 
