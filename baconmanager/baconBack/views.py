@@ -68,15 +68,15 @@ def handle_beacon(event):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == "test_verify":
-        msg = verifyUserID(event.message.text)
-        bot.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
-    else:
         bot.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
 
+    else:
+        msg = verifyUserID(event.message.text)
+        bot.reply_message(
+            event.reply_token,
+            TextSendMessage(text=msg))
     # verify that user is registered and has not confirmed attendance yet
 def verifyUserID(userID):
     if User.objects.filter(id=userID).exists():
