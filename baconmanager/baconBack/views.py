@@ -58,7 +58,8 @@ def handle_postback(event):
 def handle_beacon(event):
     time = event.timestamp
     userID = event.source.user_id
-    verifyUserID(userID)
+    sendConfirmation(1, 1, userID)
+    # verifyUserID(userID)
 
 
 @handler.add(MessageEvent, message=TextMessage)
