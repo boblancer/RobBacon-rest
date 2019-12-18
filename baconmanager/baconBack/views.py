@@ -56,6 +56,7 @@ def handle_postback(event):
 
 @handler.add(BeaconEvent)
 def handle_beacon(event):
+    print("received beacon event: ", event)
     time = event.timestamp
     userID = event.source.user_id
     sendConfirmation(1, 1, userID)
