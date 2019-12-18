@@ -170,8 +170,8 @@ class AttendanceList(APIView):
         qs = Attendance.objects.all()
         serializer = AttendanceSerializer(qs, many=True)
         for i in serializer.data:
-            u = User.objects.get(serializer.data[i]['userID'])
-            serializer.data[i]['userInfo'] = UserSerializer(u)
+            u = User.objects.get(i['userID'])
+            i['userInfo'] = UserSerializer(u)
         return Response(serializer.data)
 
     def post(self, request, format=None):
