@@ -12,7 +12,7 @@ class User(models.Model):
         return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
 
 class Attendance(models.Model):
-    classID = models.IntegerField()
+    classID = models.IntegerField(primary_key=True)
     sessionID = models.IntegerField()
     userID = models.IntegerField()
 
@@ -22,7 +22,7 @@ class Attendance(models.Model):
 
 class Class(models.Model):
     superUserID = models.IntegerField()
-    ID = models.IntegerField()
+    ID = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
     hwID = models.IntegerField()
@@ -31,14 +31,14 @@ class Class(models.Model):
         return "super user = {} id = {} name = {} desc = {} hwID = {}".format(self.superUserID, self.ID, self.name, self.description, self.hwID)
 
 class Member(models.Model):
-    classID = models.IntegerField()
+    classID = models.IntegerField(primary_key=True)
     userID = models.IntegerField()
 
     def __str__(self):
         return "class id = {} | user = {} |".format(self.classID, self.userID)
 
 class Session(models.Model):
-    ID = models.IntegerField()
+    ID = models.IntegerField(primary_key=True)
     topic = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
     start = models.DateTimeField()

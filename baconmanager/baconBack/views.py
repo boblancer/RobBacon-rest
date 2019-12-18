@@ -18,7 +18,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage, PostbackEvent, BeaconEvent
 )
 
-from .models import User
+from .models import *
 from .serializers import UserSerializer
 
 
@@ -164,8 +164,15 @@ class UserDetail(APIView):
         serializer = UserSerializer(qs)
         return Response(serializer.data)
 
+class AttendanceDetail(APIView):
 
+    def get_object(self, pk):
+        try:
+            return Attendance.objects.get(pk=pk)
+        except Attendance.DoesNotExist:
+            raise Http404
 
+"""
 @api_view(['GET', 'POST'])
 def user_test(request):
     if request.method == 'GET':
@@ -185,3 +192,4 @@ def user_test(request):
 class list_user(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+"""
