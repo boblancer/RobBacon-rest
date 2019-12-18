@@ -56,11 +56,11 @@ def handle_postback(event):
 
 @handler.add(BeaconEvent)
 def handle_beacon(event):
-    print("received beacon event: ", event)
     time = event.timestamp
     userID = event.source.user_id
-    sendConfirmation(1, 1, userID)
-    # verifyUserID(userID)
+
+    if verifyUserID(userID):
+        sendConfirmation(1,1, userID)
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -70,9 +70,8 @@ def handle_message(event):
         TextSendMessage(text=event.message.text))
 
 
-# verify that user is registered
+# verify that user is registered and has not confirmed attendance yet
 def verifyUserID(userID):
-    # send confirmation flex message if user is verified
     pass
 
 
@@ -130,7 +129,7 @@ def sendConfirmation(classID, sessionID, userID):
         return
 
 
-# confirm attendance after user clicks confirm in line bot
+# confirm attendance after user clicks confirm in flex message
 def confirm_attendance(classID, sessionID, userID):
     pass
 
