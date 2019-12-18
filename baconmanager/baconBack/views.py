@@ -19,7 +19,7 @@ from linebot.models import (
 )
 
 from .models import *
-from .serializers import UserSerializer
+from .serializers import *
 
 
 bot = LineBotApi(
@@ -164,6 +164,21 @@ class UserDetail(APIView):
         serializer = UserSerializer(qs)
         return Response(serializer.data)
 
+class AttendanceList(APIView):
+
+    def get(self, request, format=None):
+        qs = Attendance.objects.all()
+        serializer = AttendanceSerializer(qs, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        data = JSONParser().parse(request)
+        serializer = AttendanceSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class AttendanceDetail(APIView):
 
     def get_object(self, pk):
@@ -171,6 +186,11 @@ class AttendanceDetail(APIView):
             return Attendance.objects.get(pk=pk)
         except Attendance.DoesNotExist:
             raise Http404
+
+    def get(self, request, pk, format=None):
+        qs = self.get_object(pk)
+        serializer = UserSerializer(qs)
+        return Response(serializer.data)
 
 """
 @api_view(['GET', 'POST'])
