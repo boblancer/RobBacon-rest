@@ -68,9 +68,10 @@ def handle_beacon(event):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == "test_verify":
+        msg = verifyUserID(event.message.text)
         bot.reply_message(
             event.reply_token,
-            TextSendMessage(text="Verify"))
+            TextSendMessage(text=msg))
     else:
         bot.reply_message(
             event.reply_token,
@@ -81,7 +82,7 @@ def verifyUserID(userID):
     if User.objects.filter(id=userID).exists():
         u = User.objects.filter(id=userID)
         print(u)
-        return str(u)
+        return str(u ) + " :exsist"
     pass
 
 
