@@ -14,7 +14,7 @@ class User(models.Model):
 class Attendance(models.Model):
     classID = models.IntegerField(primary_key=True)
     sessionID = models.IntegerField()
-    userID = models.IntegerField()
+    userID = models.CharField(max_length=40)
 
     def __str__(self):
         return "class id = {} session = {} | user = {} |".format(self.classID, self.sessionID, self.userID)
