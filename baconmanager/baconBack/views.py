@@ -77,7 +77,7 @@ def verifyUserID(userID):
 
 
 def sendConfirmation(classID, sessionID, userID):
-    dataString = "classID=" + classID + "&sessionID=" + sessionID
+    dataString = "classID=" + str(classID) + "&sessionID=" + str(sessionID)
     try:
         bot.push_message(userID, FlexSendMessage(alt_text="Confirm your attendance", contents={
             "type": "bubble",
