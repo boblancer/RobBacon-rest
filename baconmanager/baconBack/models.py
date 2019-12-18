@@ -12,12 +12,13 @@ class User(models.Model):
         return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
 
 class Attendance(models.Model):
-    classID = models.IntegerField(primary_key=True)
+    ID = models.IntegerField(primary_key=True)
+    classID = models.IntegerField()
     sessionID = models.IntegerField()
     userID = models.CharField(max_length=40)
 
     def __str__(self):
-        return "class id = {} session = {} | user = {} |".format(self.classID, self.sessionID, self.userID)
+        return "AID = {} class id = {} session = {} | user = {} |".format(self.ID, self.classID, self.sessionID, self.userID)
 
 
 class Class(models.Model):
