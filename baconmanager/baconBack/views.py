@@ -7,22 +7,22 @@ from rest_framework.response import Response
 from rest_framework import generics, status
 from django.http import HttpRequest
 
-from linebot import (
-    LineBotApi, WebhookHandler
-)
+from .models import User
+from .serializers import UserSerializer
+import service
+
+
 from linebot.exceptions import (
     InvalidSignatureError,
     LineBotApiError)
+
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, FlexSendMessage, PostbackEvent, BeaconEvent
 )
-
-from .models import User
-from .serializers import UserSerializer
-
-bot = LineBotApi(
-    'Wi0UaiRY4OA/CzhJxRf7E+wIapbEUfawu9YDyz3O3bxQK3nsOiR+gIbMXrQxjEmM4RIiOps56z/c9+BjSAdHbO0fqHVdLbF+eKaewPQV5TwnXKZOa7eL/z254NpTLBhco3u8zTMpscnjmvqNG3FGjgdB04t89/1O/w1cDnyilFU='
+from linebot import (
+    LineBotApi, WebhookHandler
 )
+
 handler = WebhookHandler('edd35e8453bd3b9715cb6e30941c196a')
 
 
@@ -50,87 +50,23 @@ def handle_postback(event):
         dict[temp[0]] = temp[1]
 
     dict["userID"] = event.source.user_id
-    bot.reply_message(event.reply_token, TextSendMessage(text="Confirmed"))
-    confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
+    service.sendTextBroadcast(data)
+    service.confirm_attendance(
+        dict["classID"], dict["sessionID"], dict["userID"])
 
 
 @handler.add(BeaconEvent)
 def handle_beacon(event):
     time = event.timestamp
     userID = event.source.user_id
-    verifyUserID(userID)
+    service.verifyUserID(userID)
 
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    bot.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-
-
-# verify that user is registered
-def verifyUserID(userID):
-    # send confirmation flex message if user is verified
-    pass
-
-
-def sendConfirmation(classID, sessionID, userID):
-    dataString = "classID=" + classID + "&sessionID=" + sessionID
-    try:
-        bot.push_message(userID, FlexSendMessage(alt_text="Confirm your attendance", contents={
-            "type": "bubble",
-            "direction": "ltr",
-            "header": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "filler"
-                    }
-                ]
-            },
-            "hero": {
-                "type": "image",
-                "url": "https://i.imgur.com/EP3JNSS.png",
-                "align": "center",
-                "gravity": "center",
-                "size": "4xl",
-                "aspectRatio": "1.51:1",
-                "aspectMode": "fit",
-                "backgroundColor": "#FFFFFF"
-            },
-            "footer": {
-                "type": "box",
-                "layout": "horizontal",
-                "backgroundColor": "#464F69",
-                "contents": [
-                    {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "Confirm Attendance",
-                                    "text": "Confirm Attendance",
-                                    "data": dataString
-                                },
-                                "color": "#ffffff"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-        ))
-    except LineBotApiError as e:
-        return
-
-
-# confirm attendance after user clicks confirm in line bot
-def confirm_attendance(classID, sessionID, userID):
-    pass
+    msg = "from token: {} message: {}".format(
+        event.reply_token, event.message.text)
+    service.sendtextMessage(event.reply_token, msg)
 
 
 @api_view(['GET', 'POST'])
