@@ -3,5 +3,5 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [path('', webhook, name='index'),
-               path('users/', list_user.as_view(), name="user_all"),
-               path('usersTest/', user_test)]
+               path('usersDetail/', UserDetail.as_view(), name="UserDetailsAPI"),
+               path('usersTest/', UserList.as_view(), name="UserAPI")]
