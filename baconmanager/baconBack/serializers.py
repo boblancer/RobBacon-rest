@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attendance
-        fields = ("classID", "sessionID", "userID")
+        fields = ("ID", "classID", "sessionID", "userID")
 
 class ClassSerializer(serializers.ModelSerializer):
     class Meta:
