@@ -11,7 +11,7 @@ class User(models.Model):
     def __str__(self):
         return "ID = {} name = {} {} studentID = {}".format(self.ID, self.firstName, self.lastName, self.studentID)
 
-"""
+
 class Attendance(models.Model):
     ID = models.IntegerField(primary_key=True)
     classID = models.IntegerField()
@@ -20,7 +20,7 @@ class Attendance(models.Model):
 
     def __str__(self):
         return "AID = {} class id = {} session = {} | user = {} |".format(self.ID, self.classID, self.sessionID, self.userID)
-"""
+
 
 
 class Class(models.Model):
