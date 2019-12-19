@@ -86,8 +86,6 @@ def handleBeaconActivity(userID, hwid, timestamp):
     if User.objects.filter(ID=userID).exists() and Member.objects.filter(classID=hwid).exists():
         print("sending confirmation")
         # and Session.objects.filter(ClassID=hwid).exists()
-        u = User.objects.get(ID=userID)
-        s = Session.objects.get(ID=hwid)
         sendConfirmation(hwid, hwid, userID)
 
         return str(u) + str(s) + '@' + str(timestamp)
