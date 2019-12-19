@@ -150,7 +150,6 @@ def confirm_attendance(classID, sessionID, userID):
     print("Confirm")
     data = {"classID": classID, "sessionID": 1234, "userID": userID}
     serializer = AttendanceSerializer(data=data)
-    print(serializer.data)
     if serializer.is_valid():
         serializer.save()
 
