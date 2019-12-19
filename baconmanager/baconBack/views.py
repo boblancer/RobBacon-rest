@@ -79,8 +79,8 @@ def handle_message(event):
             TextSendMessage(text=msg))
     # verify that user is registered and has not confirmed attendance yet
 def verifyUserID(userID):
-    if User.objects.filter(id=userID).exists():
-        u = User.objects.filter(id=userID)
+    if User.objects.filter(ID=userID).exists():
+        u = User.objects.filter(ID=userID)
         print(u)
         return str(u ) + " :exsist"
     pass
