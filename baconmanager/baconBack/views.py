@@ -67,10 +67,10 @@ def handle_beacon(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == "test_verify":
+    if event.message.text == "attend":
         bot.reply_message(
             event.reply_token,
-            TextSendMessage(text=event.message.text))
+            TextSendMessage(text=message_confirm()))
 
     else:
         msg = handleBeaconActivity(event.message.text, 1234 , event.timestamp)
@@ -156,7 +156,13 @@ def confirm_attendance(classID, sessionID, userID):
     if serializer.is_valid():
         serializer.save()
 
-
+def message_confirm():
+    print("message Confirm")
+    dict = {"ClassID": "0136a2e901", "SessionID": "0136a2e901", "UserID": "Ue83f590e1d7f1125364d32ae8091a2e7"}
+    serializer = AttendanceSerializer(data=dict)
+    if serializer.is_valid():
+        serializer.save()
+    return "success"
 class UserList(APIView):
 
     def get(self, request, format=None):
