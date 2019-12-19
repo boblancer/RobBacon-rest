@@ -74,11 +74,6 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=r))
 
-    else:
-        msg = handleBeaconActivity(event.message.text, 1234 , event.timestamp)
-        bot.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
     # verify that user is registered and has not confirmed attendance yet
 
 
@@ -90,7 +85,7 @@ def handleBeaconActivity(userID, hwid, timestamp):
         # and Session.objects.filter(ClassID=hwid).exists()
         sendConfirmation(hwid, 1234, userID)
 
-        return True
+        return "Sended"
 
     return None
 
