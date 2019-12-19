@@ -201,7 +201,7 @@ class AttendanceList(APIView):
         return response
 
     def post(self, request, format=None):
-        print("Posting user")
+        print("Posting  at post")
         data = JSONParser().parse(request)
         serializer = AttendanceSerializer(data=data)
         member_serializer = MemberSerializer({"classID": "0136a2e901", "userID": data.ID})
