@@ -33,7 +33,8 @@ class Class(models.Model):
         return "super user = {} id = {} name = {} desc = {} hwID = {}".format(self.superUserID, self.ID, self.name, self.description, self.hwID)
 
 class Member(models.Model):
-    classID = models.CharField(max_length=40, primary_key=True)
+    ID = models.AutoField(primary_key=True)
+    classID = models.CharField(max_length=40)
     userID = models.CharField(max_length=40)
 
     def __str__(self):
