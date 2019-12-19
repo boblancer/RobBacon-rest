@@ -201,10 +201,10 @@ class AttendanceList(APIView):
         return response
 
     def post(self, request, format=None):
+        print("Posting user")
         data = JSONParser().parse(request)
         serializer = AttendanceSerializer(data=data)
         member_serializer = MemberSerializer({"classID": "0136a2e901", "userID": data.ID})
-        print("Member {} is saved".format(data.ID))
         if member_serializer.is_valid:
             member_serializer.save()
             print("Member {} is saved".format(data.ID))
