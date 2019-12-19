@@ -86,7 +86,7 @@ def handleBeaconActivity(userID, hwid, timestamp):
         u = User.objects.get(ID=userID)
         s = Session.objects.get(ID=hwid)
         sendConfirmation(hwid, hwid, userID)
-        return str(u) + str(s) + '@' + timestamp
+        return str(u) + str(s) + '@' + str(timestamp)
 
     return None
 
