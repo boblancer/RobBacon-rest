@@ -13,7 +13,7 @@ class User(models.Model):
 
 
 class Attendance(models.Model):
-    ID = models.IntegerField(primary_key=True)
+    ID = models.AutoField(primary_key=True)
     classID = models.CharField(max_length=40)
     sessionID = models.IntegerField()
     userID = models.CharField(max_length=40)
