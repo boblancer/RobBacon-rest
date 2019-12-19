@@ -38,7 +38,7 @@ class Member(models.Model):
     userID = models.CharField(max_length=40)
 
     def __str__(self):
-        return "class id = {} | user = {} |".format(self.classID, self.userID)
+        return "ID = {} class id = {} | user = {} |".format(self.ID, self.classID, self.userID)
 
 class Session(models.Model):
     ID = models.IntegerField(primary_key=True)
