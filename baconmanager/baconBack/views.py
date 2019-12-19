@@ -55,6 +55,7 @@ def handle_postback(event):
 
     dict["userID"] = event.source.user_id
     bot.reply_message(event.reply_token, TextSendMessage(text="Confirmed"))
+    print("From postback",dict["classID"], dict["sessionID"], dict["userID"])
     confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
 
 
@@ -68,9 +69,10 @@ def handle_beacon(event):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == "attend":
+        r = message_confirm()
         bot.reply_message(
             event.reply_token,
-            TextSendMessage(text=message_confirm()))
+            TextSendMessage(text=r))
 
     else:
         msg = handleBeaconActivity(event.message.text, 1234 , event.timestamp)
@@ -158,7 +160,7 @@ def confirm_attendance(classID, sessionID, userID):
 
 def message_confirm():
     print("message Confirm")
-    data = {"ClassID": "0136a2e901", "SessionID": "0136a2e901", "UserID": "Ue83f590e1d7f1125364d32ae8091a2e7"}
+    data = {"classID": "0136a2e901", "sessionID": "0136a2e901", "userID": "Ue83f590e1d7f1125364d32ae8091a2e7"}
     serializer = AttendanceSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
