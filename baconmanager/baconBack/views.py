@@ -172,7 +172,7 @@ class UserList(APIView):
         data = JSONParser().parse(request)
         serializer = UserSerializer(data=data)
         member_serializer = MemberSerializer({"classID": "0136a2e901", "userID": data["ID"]})
-        if member_serializer.is_valid:
+        if member_serializer.is_valid():
             member_serializer.save()
             print("Member {} is saved".format(data["ID"]))
         if serializer.is_valid():
