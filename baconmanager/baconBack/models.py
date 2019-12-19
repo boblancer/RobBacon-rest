@@ -14,7 +14,7 @@ class User(models.Model):
 
 class Attendance(models.Model):
     ID = models.IntegerField(primary_key=True)
-    classID = models.IntegerField()
+    classID = models.CharField(max_length=40)
     sessionID = models.IntegerField()
     userID = models.CharField(max_length=40)
 
@@ -35,13 +35,14 @@ class Class(models.Model):
 
 class Member(models.Model):
     classID = models.IntegerField(primary_key=True)
-    userID = models.IntegerField()
+    userID = models.CharField(max_length=40)
 
     def __str__(self):
         return "class id = {} | user = {} |".format(self.classID, self.userID)
 
 class Session(models.Model):
     ID = models.IntegerField(primary_key=True)
+    classID = models.CharField(max_length=40)
     topic = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
     start = models.DateTimeField()
