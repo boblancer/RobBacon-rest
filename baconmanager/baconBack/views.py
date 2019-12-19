@@ -150,7 +150,8 @@ def sendConfirmation(classID, sessionID, userID):
 
 # confirm attendance after user clicks confirm in flex message
 def confirm_attendance(classID, sessionID, userID):
-    dict = {"classID": classID, "sessionID": sessionID, "userID": userID}
+    print("Confirm")
+    dict = {"ClassID": classID, "SessionID": sessionID, "UserID": userID}
     serializer = AttendanceSerializer(data=dict)
     if serializer.is_valid():
         serializer.save()

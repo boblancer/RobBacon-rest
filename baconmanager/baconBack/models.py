@@ -22,7 +22,6 @@ class Attendance(models.Model):
         return "AID = {} class id = {} session = {} | user = {} |".format(self.ID, self.classID, self.sessionID, self.userID)
 
 
-
 class Class(models.Model):
     superUserID = models.IntegerField()
     ID = models.IntegerField(primary_key=True)
