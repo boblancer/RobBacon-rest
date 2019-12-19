@@ -189,7 +189,9 @@ class AttendanceList(APIView):
         for i in serializer.data:
             u = User.objects.get(pk=i['userID'])
             i['userInfo'] = UserSerializer(u).data
-        return Response(serializer.data)
+        response = Response(serializer.data)
+        response['Access-Control-Allow-Origin'] = "https://bacon-attendance.firebaseapp.com"
+        return response
 
     def post(self, request, format=None):
         data = JSONParser().parse(request)

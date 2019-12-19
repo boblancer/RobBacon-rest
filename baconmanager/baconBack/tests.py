@@ -14,8 +14,8 @@ class UserViewTest(APITestCase):
         if not fn and not ln and not id:
             User.objects.create(firstName=fn, lastName=ln, lineID=id)
 
-class getUserTest(UserViewTest):
 
+class getUserTest(UserViewTest):
     def get_all_user(self):
         response = self.client.get()
         # fetch the data from db
