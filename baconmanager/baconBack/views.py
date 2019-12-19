@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from django.http import HttpRequest
+from datetime import datetime
+
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -60,10 +62,8 @@ def handle_postback(event):
 def handle_beacon(event):
     time = event.timestamp
     userID = event.source.user_id
-
-    if verifyUserID(userID):
-        sendConfirmation(1,1, userID)
-
+    if event.beacon.type == "enter":
+        handleBeaconActivity(userID, event.beacon.hwid, time)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -73,17 +73,22 @@ def handle_message(event):
             TextSendMessage(text=event.message.text))
 
     else:
-        msg = verifyUserID(event.message.text)
+        msg = handleBeaconActivity(event.message.text, 1234 , event.timestamp)
         bot.reply_message(
             event.reply_token,
             TextSendMessage(text=msg))
     # verify that user is registered and has not confirmed attendance yet
-def verifyUserID(userID):
-    if User.objects.filter(ID=userID).exists():
-        u = User.objects.filter(ID=userID)
-        print(u)
-        return str(u ) + " :exsist"
-    pass
+
+
+def handleBeaconActivity(userID, hwid, timestamp):
+    print(timestamp)
+    if User.objects.filter(ID=userID).exists() and Member.objects.filter(ClassID=hwid).exists() and Session.objects.filter(ID=hwid).exists():
+        u = User.objects.get(ID=userID)
+        s = Session.objects.get(ID=hwid)
+        sendConfirmation(hwid, hwid, userID)
+        return str(u) + str(s) + '@' + timestamp
+
+    return None
 
 
 def sendConfirmation(classID, sessionID, userID):
