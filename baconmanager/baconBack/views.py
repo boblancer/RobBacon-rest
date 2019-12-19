@@ -47,16 +47,16 @@ def webhook(request):
 def handle_postback(event):
     data = event.postback.data
     data = data.split('&')
-    dict = {}
+    data_dict = {}
 
     for item in data:
         temp = item.split('=')
-        dict[temp[0]] = temp[1]
+        data_dict[temp[0]] = temp[1]
 
-    dict["userID"] = event.source.user_id
+    data_dict["userID"] = event.source.user_id
     bot.reply_message(event.reply_token, TextSendMessage(text="Confirmed"))
-    print("From postback",dict["classID"], dict["sessionID"], dict["userID"])
-    confirm_attendance(dict["classID"], dict["sessionID"], dict["userID"])
+    print("From postback",data_dict["classID"], data_dict["sessionID"], data_dict["userID"])
+    confirm_attendance(data_dict["classID"], data_dict["sessionID"], data_dict["userID"])
 
 
 @handler.add(BeaconEvent)
@@ -153,14 +153,14 @@ def sendConfirmation(classID, sessionID, userID):
 # confirm attendance after user clicks confirm in flex message
 def confirm_attendance(classID, sessionID, userID):
     print("Confirm")
-    data = {"ClassID": classID, "SessionID": sessionID, "UserID": userID}
+    data = {"ClassID": classID, "SessionID": 1234, "UserID": userID}
     serializer = AttendanceSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
 
 def message_confirm():
     print("message Confirm")
-    data = {"classID": "0136a2e901", "sessionID": "0136a2e901", "userID": "Ue83f590e1d7f1125364d32ae8091a2e7"}
+    data = {"classID": "0136a2e901", "sessionID": 1234, "userID": "Ue83f590e1d7f1125364d32ae8091a2e7"}
     serializer = AttendanceSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
