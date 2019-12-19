@@ -148,7 +148,7 @@ def sendConfirmation(classID, sessionID, userID):
 # confirm attendance after user clicks confirm in flex message
 def confirm_attendance(classID, sessionID, userID):
     print("Confirm")
-    data = {"ClassID": classID, "SessionID": 1234, "UserID": userID}
+    data = {"classID": classID, "sessionID": 1234, "userID": userID}
     serializer = AttendanceSerializer(data=data)
     print(serializer.data)
     if serializer.is_valid():
