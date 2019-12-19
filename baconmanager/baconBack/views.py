@@ -94,6 +94,7 @@ def handleBeaconActivity(userID, hwid, timestamp):
 
 def sendConfirmation(classID, sessionID, userID):
     dataString = "classID=" + str(classID) + "&sessionID=" + str(sessionID)
+    print("Pusing confirmation"+dataString)
     try:
         bot.push_message(userID, FlexSendMessage(alt_text="Confirm your attendance", contents={
             "type": "bubble",
