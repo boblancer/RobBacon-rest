@@ -80,7 +80,7 @@ def handle_message(event):
 def handleBeaconActivity(userID, hwid, timestamp):
     print(timestamp)
     print("user in db = {} and member is db = {}". format(User.objects.filter(ID=userID).exists(), Member.objects.filter(classID=hwid).exists()))
-    if User.objects.filter(ID=userID).exists() and Member.objects.filter(classID=hwid).exists() and not Attendance.objects.filter(classID=hwid, ID=userID).exists():
+    if User.objects.filter(ID=userID).exists() and Member.objects.filter(classID=hwid).exists() and not Attendance.objects.filter(classID=hwid, studentID=userID).exists():
         print("sending confirmation")
         # and Session.objects.filter(ClassID=hwid).exists()
         sendConfirmation(hwid, 1234, userID)
